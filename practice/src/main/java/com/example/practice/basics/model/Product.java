@@ -1,16 +1,18 @@
 package com.example.practice.basics.model;
 
 public class Product {
-    private int id;
+    private Integer id;
     private String name;
-    private double price;
-    public Product(int id,String name,double price){
+    private Double price;
+    public Product(){
+    }
+    public Product(Integer id,String name,Double price){
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -18,16 +20,16 @@ public class Product {
         return name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
-    public void setId(int id){
+    public void setId(Integer id){
         this.id = id;
     }
     public void setName(String name){
         this.name = name;
     }
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
