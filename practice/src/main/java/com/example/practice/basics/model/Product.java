@@ -1,18 +1,25 @@
 package com.example.practice.basics.model;
 
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false)
     private String name;
     private Double price;
     public Product(){
     }
-    public Product(Integer id,String name,Double price){
-        this.id = id;
+    public Product(String name,Double price){
         this.name = name;
         this.price = price;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -23,7 +30,7 @@ public class Product {
     public Double getPrice() {
         return price;
     }
-    public void setId(Integer id){
+    public void setId(Long id){
         this.id = id;
     }
     public void setName(String name){
