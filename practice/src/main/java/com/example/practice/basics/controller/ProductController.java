@@ -19,8 +19,8 @@ public class ProductController {
         this.productService = productService;
     }
     @GetMapping("/products")
-    public List<Product> getProducts(){
-        return productService.getProduct();
+    public String getProducts(){
+        return "protected product API";
     }
     @GetMapping("/products/{id}")
     public Product getProductById(@PathVariable int id){

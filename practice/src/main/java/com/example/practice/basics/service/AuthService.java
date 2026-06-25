@@ -13,6 +13,9 @@ public class AuthService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private JwtService jwtService;
+
     public User register(User user){
         String password = user.getPassword();
         String encodedPassword = passwordEncoder.encode(password);
@@ -25,6 +28,6 @@ public class AuthService {
         if(!isMatch){
             throw new RuntimeException("Invalid password");
         }
-        return "Login Successfully";
+        return jwtService.generateToken(user.getEmail());
     }
 }

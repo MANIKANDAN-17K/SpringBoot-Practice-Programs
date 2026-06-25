@@ -4,6 +4,7 @@ import com.example.practice.basics.DTO.LoginRequest;
 import com.example.practice.basics.model.User;
 import com.example.practice.basics.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,8 +17,9 @@ public class AuthController {
     public User register(@RequestBody User user){
         return authService.register(user);
     }
-    @GetMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest){
-        return authService.login(loginRequest);
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request){
+        String token = authService.login(request);
+        return ResponseEntity.ok(token);
     }
 }

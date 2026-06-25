@@ -5,6 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class User {
@@ -20,4 +24,5 @@ public class User {
     public User(){
 
     }
+
 }
